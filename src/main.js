@@ -1,7 +1,7 @@
 import "../style.css";
 import { getImc } from "./util";
 
-document.getElementById("height").addEventListener("change", calculateImc);
+document.getElementById("height").addEventListener("input", calculateImc);
 
 document.getElementById("range").addEventListener("input", calculateImc);
 

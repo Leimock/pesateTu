@@ -40,7 +40,7 @@ describe("empty spec", () => {
     cy.get("#height").type(190);
     cy.get("#range").invoke("val", 115).trigger("input");
     cy.get("#resultado").contains(
-      "La altura debe estar entre 1cm y 180cm, y el peso entre 1kg y 300kg"
+      "La altura debe estar entre 1cm y 180cm"
     );
   });
 });
