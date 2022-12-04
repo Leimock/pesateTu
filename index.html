@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="flex flex-col w-full items-center justify-center gap-10">
+      <h1 class="text-4xl">Calcula tu IMC</h1>
+      <div class="flex flex-row w-1/3 justify-between">
+        <span class="items-start">Estatura: </span
+        ><span class="flex items-start gap-4 pr-9"
+          ><input type="number" id="height" min="1" max="180" value="170" />
+          cm</span
+        >
+      </div>
+      <div class="flex flex-row w-1/3 justify-between">
+        <span>Peso: </span>
+        <div class="flex items-start gap-4">
+          <input type="range" id="range" min="1" max="300" value="80" /><span
+            id="ran"
+            >80kg</span
+          >
+        </div>
+      </div>
+      <div class="flex w-1/3 gap-10">
+        <span>Indice de masa corporal: </span>
+        <div id="resultado"></div>
+      </div>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+
+    <script>
+      document.getElementById("range").addEventListener("input", () => {
+        let data = document.getElementById("range").value;
+        document.getElementById("ran").innerHTML = data + "kg";
+      });
+
+      let height = document.getElementById("height").value;
+      console.log(height);
+      let range = document.getElementById("range").value;
+      console.log(range);
+      let imc = range / (height / 100) ** 2;
+      imc = imc.toFixed(1);
+      if (imc < 18.5)
+        document.getElementById("resultado").innerHTML = imc + " (Peso Bajo)";
+      else if (imc < 25)
+        document.getElementById("resultado").innerHTML = imc + " (Normal)";
+      else if (imc < 30)
+        document.getElementById("resultado").innerHTML = imc + " (Sobrepeso)";
+      else document.getElementById("resultado").innerHTML = imc + " (Obesidad)";
+    </script>
+  </body>
+</html>
